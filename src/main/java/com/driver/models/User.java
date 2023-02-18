@@ -9,7 +9,7 @@ public class User {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private int userId;
+    private int Id;
     private String username;
     private String password;
     private String firstname="test";
@@ -20,8 +20,8 @@ public class User {
     public User() {
     }
 
-    public User(int userId, String username, String password, String firstname, String lastname, List<Blog> blogList) {
-        this.userId = userId;
+    public User(int Id, String username, String password, String firstname, String lastname, List<Blog> blogList) {
+        this.Id = Id;
         this.username = username;
         this.password = password;
         this.firstname = firstname;
@@ -29,12 +29,12 @@ public class User {
         this.blogList = blogList;
     }
 
-    public int getUserId() {
-        return userId;
+    public int getId() {
+        return Id;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setId(int userId) {
+        this.Id = Id;
     }
 
     public String getUsername() {
