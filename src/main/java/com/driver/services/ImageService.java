@@ -37,23 +37,30 @@ public class ImageService {
             images.add(image);
 
         blogRepository2.save(blog);
-        imageRepository2.save(image);
         return image;
     }
 
     public void deleteImage(Integer id){
         imageRepository2.deleteById(id);
-        Image image= imageRepository2.findById(id).get();
-
-        Blog blog= blogRepository2.findById(id).get();
-        blog.getImages().remove(image);
-        blogRepository2.save(blog);
     }
 
     public int countImagesInScreen(Integer id, String screenDimensions) {
         //Find the number of images of given dimensions that can fit in a screen having `screenDimensions`
-        Blog blog= blogRepository2.findById(id).get();
-        int count=blog.getImages().size();
-        return count;
+       String[]scarray= screenDimensions.split("X");
+       Image image=imageRepository2.findById(id).get();
+       String imagedimension = image.getDimensions();
+       String []imagearray=imagedimension.split("X");
+       int scrlen = Integer.parseInt(scarray[0]);
+       int scrbred = Integer.parseInt(scarray[1]);
+
+        int imglen = Integer.parseInt(imagearray[0]);
+        int imgbred = Integer.parseInt(imagearray[1]);
+        return imageCount(scrlen,scrbred,imglen,imgbred);
+    }
+    private int imageCount(int scrlen, int scrbred, int imglen, int imgbred)
+    {
+        int lenC=scrlen/imglen;
+        int lenB=scrbred/imgbred;
+        return  lenC*lenB;
     }
 }
