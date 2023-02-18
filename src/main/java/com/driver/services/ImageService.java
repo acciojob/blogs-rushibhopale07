@@ -30,10 +30,10 @@ public class ImageService {
             return null;
         }
             List<Image> images;
-            if (blog.getImages().isEmpty()) {
+            if (blog.getImageList().isEmpty()) {
                 images = new ArrayList<>();
             }
-            images = blog.getImages();
+            images = blog.getImageList();
             images.add(image);
 
         blogRepository2.save(blog);

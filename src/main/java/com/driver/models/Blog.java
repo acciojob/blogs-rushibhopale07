@@ -76,11 +76,11 @@ public class Blog {
         this.user = user;
     }
 
-    public List<Image> getImages() {
+    public List<Image> getImageList() {
         return imageList;
     }
 
-    public void setImages(List<Image> imageList) {
+    public void setImageList(List<Image> imageList) {
         this.imageList = imageList;
     }
 }
