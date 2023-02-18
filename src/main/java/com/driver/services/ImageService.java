@@ -25,11 +25,7 @@ public class ImageService {
 
 
         Blog blog=blogRepository2.findById(blogId).get();
-        if(blog==null)
-        {
-            return null;
-        }
-            List<Image> images;
+        List<Image> images;
             if (blog.getImageList().isEmpty()) {
                 images = new ArrayList<>();
             }
