@@ -22,16 +22,8 @@ public class ImageService {
         image.setId(blogId);
         image.setDescription(description);
         image.setDimensions(dimensions);
-
-
         Blog blog=blogRepository2.findById(blogId).get();
-        List<Image> images;
-            if (blog.getImageList().isEmpty()) {
-                images = new ArrayList<>();
-            }
-            images = blog.getImageList();
-            images.add(image);
-
+        blog.getImageList().add(image);
         blogRepository2.save(blog);
         return image;
     }
