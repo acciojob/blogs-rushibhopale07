@@ -12,15 +12,14 @@ public class Blog {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String content;
     private String title;
-
+    private String content;
     @CreationTimestamp
-    private Date pubdate;
+    private Date pubDate;
 
     @ManyToOne
     @JoinColumn
-    private User uservariable;
+    private User user;
 
     @OneToMany(mappedBy = "blog", cascade=CascadeType.ALL)
     @JoinColumn
@@ -29,12 +28,12 @@ public class Blog {
     public Blog() {
     }
 
-    public Blog(int id, String content, String title, Date pubdate, User uservariable, List<Image> images) {
+    public Blog(int id, String content, String title, Date pubDate, User user, List<Image> images) {
         this.id = id;
         this.content = content;
         this.title = title;
-        this.pubdate = pubdate;
-        this.uservariable = uservariable;
+        this.pubDate = pubDate;
+        this.user = user;
         this.imageList = images;
     }
 
@@ -62,20 +61,20 @@ public class Blog {
         this.title = title;
     }
 
-    public Date getPubdate() {
-        return pubdate;
+    public Date getPubDate() {
+        return pubDate;
     }
 
-    public void setPubdate(Date pubdate) {
-        this.pubdate = pubdate;
+    public void setPubDate(Date pubDate) {
+        this.pubDate = pubDate;
     }
 
-    public User getUservariable() {
-        return uservariable;
+    public User getUser() {
+        return user;
     }
 
-    public void setUservariable(User uservariable) {
-        this.uservariable = uservariable;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public List<Image> getImages() {
