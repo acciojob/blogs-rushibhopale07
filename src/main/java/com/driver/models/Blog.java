@@ -23,7 +23,8 @@ public class Blog {
     private User uservariable;
 
     @OneToMany(mappedBy = "blog", cascade=CascadeType.ALL)
-    private List<Image> images;
+    @JoinColumn
+    private List<Image> imageList;
 
     public Blog() {
     }
@@ -34,7 +35,7 @@ public class Blog {
         this.title = title;
         this.pubdate = pubdate;
         this.uservariable = uservariable;
-        this.images = images;
+        this.imageList = images;
     }
 
     public int getId() {
@@ -78,10 +79,10 @@ public class Blog {
     }
 
     public List<Image> getImages() {
-        return images;
+        return imageList;
     }
 
-    public void setImages(List<Image> images) {
-        this.images = images;
+    public void setImages(List<Image> imageList) {
+        this.imageList = imageList;
     }
 }

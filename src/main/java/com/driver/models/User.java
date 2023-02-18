@@ -12,12 +12,21 @@ public class User {
     private int userId;
     private String username;
     private String password;
-    private String firstname;
-    private String lastname;
+    private String firstname="test";
+    private String lastname="test";
 
     @OneToMany(mappedBy="",cascade=CascadeType.ALL)
-    List<Blog> blogs= new ArrayList<>();
+    List<Blog> blogList= new ArrayList<>();
     public User() {
+    }
+
+    public User(int userId, String username, String password, String firstname, String lastname, List<Blog> blogList) {
+        this.userId = userId;
+        this.username = username;
+        this.password = password;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.blogList = blogList;
     }
 
     public int getUserId() {
@@ -61,11 +70,11 @@ public class User {
     }
 
     public List<Blog> getBlogs() {
-        return blogs;
+        return blogList;
     }
 
-    public void setBlogs(List<Blog> blogs) {
-        this.blogs = blogs;
+    public void setBlogs(List<Blog> blogList) {
+        this.blogList = blogList;
     }
 }
 
