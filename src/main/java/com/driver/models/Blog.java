@@ -27,10 +27,10 @@ public class Blog {
     public Blog() {
     }
 
-    public Blog(int id, String title, String content) {
-        this.id = id;
+    public Blog(String title, String content, User user) {
         this.title = title;
         this.content = content;
+        this.user = user;
     }
 
     public Blog(int id, String content, String title, Date pubDate, User user, List<Image> images) {
