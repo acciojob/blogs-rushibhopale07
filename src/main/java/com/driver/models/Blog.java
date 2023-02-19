@@ -27,6 +27,12 @@ public class Blog {
     public Blog() {
     }
 
+    public Blog(int id, String title, String content) {
+        this.id = id;
+        this.title = title;
+        this.content = content;
+    }
+
     public Blog(int id, String content, String title, Date pubDate, User user, List<Image> images) {
         this.id = id;
         this.content = content;
